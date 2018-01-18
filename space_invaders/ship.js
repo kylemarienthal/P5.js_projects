@@ -4,6 +4,11 @@ function Ship(){
 
   this.show = function(){
     fill(255);
-    rect(this.x, height - 20, 20, 20);
+    rectMode(CENTER);
+    rect(this.x, height - 20, 20, 60);
+  }
+
+  this.move = function(dir) {
+    this.x += dir*5;
   }
 }

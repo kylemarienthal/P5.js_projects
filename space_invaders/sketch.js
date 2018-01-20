@@ -4,15 +4,15 @@ var aliens = [];
 function setup(){
   createCanvas(600, 400);
   ship = new Ship();
-  for (var i = 0; i < 5; i++) {
-    aliens[i] = new Alien();
+  for (var i = 0; i < 6; i++) {
+    aliens[i] = new Alien(i*80+80, 60);
   }
 }
 
 function draw() {
   background(51);
   ship.show();
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < aliens.length; i++) {
     aliens[i].show()
   }
 }

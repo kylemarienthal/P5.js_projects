@@ -18,10 +18,10 @@ function draw() {
     bullets[i].show();
     bullets[i].move();
     for (var j = 0; j < aliens.length; j++) {
-      if (bullet[i].hits(aliens[j])){
+      if (bullets[i].hits(aliens[j])){
         console.log("CONNECTION");
       }
-
+    }
   }
 
 

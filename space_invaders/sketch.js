@@ -19,7 +19,8 @@ function draw() {
     bullets[i].move();
     for (var j = 0; j < aliens.length; j++) {
       if (bullets[i].hits(aliens[j])){
-        console.log("CONNECTION");
+        aliens[j].grow();
+        drops[i].evaporate();
       }
     }
   }
@@ -31,7 +32,7 @@ function draw() {
 }
 
 function keyPressed() {
-  if (key === " "){
+  if ( key === " "){
     var bullet = new Bullet(ship.x, height);
     bullets.push(bullet);
   }

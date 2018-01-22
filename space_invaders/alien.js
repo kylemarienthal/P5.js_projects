@@ -3,6 +3,10 @@ function Alien(x, y){
   this.y = y;
   this.r = 30;
 
+  this.grow = function() {
+    this.r += 2;
+  }
+
 
   this.show = function(){
     fill(0, 93, 255);

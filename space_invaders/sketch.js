@@ -20,7 +20,7 @@ function draw() {
     for (var j = 0; j < aliens.length; j++) {
       if (bullets[i].hits(aliens[j])){
         aliens[j].grow();
-        drops[i].evaporate();
+        bullets[i].evaporate();
       }
     }
   }
@@ -28,6 +28,12 @@ function draw() {
 
   for (var i = 0; i < aliens.length; i++) {
     aliens[i].show();
+  }
+  
+  for (var i = bullets.length - 1; i>= 0; i--) {
+    if(bullets[i].toDelete){
+      bullets.splice(i, 1);
+    }
   }
 }
 

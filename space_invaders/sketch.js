@@ -14,6 +14,8 @@ function setup(){
 function draw() {
   background(51);
   ship.show();
+  ship.move();
+
   for (var i = 0; i < bullets.length; i++) {
     bullets[i].show();
     bullets[i].move();
@@ -25,15 +27,32 @@ function draw() {
     }
   }
 
+  var edge = false;
 
   for (var i = 0; i < aliens.length; i++) {
     aliens[i].show();
+    aliens[i].move();
+    if(aliens[i].x > width || aliens[i].x < 0){
+      edge = true;
+    }
   }
-  
+
+  if (edge){
+    for (var i = 0; i < aliens.length; i++) {
+      aliens[i].shiftDown();
+    }
+  }
+
   for (var i = bullets.length - 1; i>= 0; i--) {
     if(bullets[i].toDelete){
       bullets.splice(i, 1);
     }
+  }
+}
+
+function keyReleased(){
+  if( key !== " "){
+    ship.setDir(0);
   }
 }
 
@@ -43,8 +62,8 @@ function keyPressed() {
     bullets.push(bullet);
   }
   if (keyCode === RIGHT_ARROW) {
-    ship.move(1);
+    ship.setDir(1);
   } else if (keyCode === LEFT_ARROW){
-    ship.move(-1);
+    ship.setDir(-1);
   }
 }

@@ -9,6 +9,10 @@ function Alien(x, y){
     this.r += 2;
   }
 
+  this.shrink = function(){
+    this.r -= 1;
+  }
+
   this.shiftDown = function(){
     this.xdir *= -1;
     this.y += this.r;

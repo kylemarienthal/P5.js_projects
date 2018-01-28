@@ -24,6 +24,10 @@ function draw() {
         aliens[j].grow();
         bullets[i].evaporate();
       }
+      else if(!bullets[i].hits(aliens[j])){
+        aliens[j].shrink();
+        bullets[i].evaporate();
+      }
     }
   }
 
